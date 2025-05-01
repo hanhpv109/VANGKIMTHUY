@@ -1,0 +1,191 @@
+﻿<!DOCTYPE html>
+<html lang="vi">
+<head>
+  <meta charset="UTF-8">
+  <title>Giá vàng hôm nay - Kim Thúy Gold</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Cập nhật giá vàng mới nhất từ Kim Thúy - Hải Dương. Bảng giá mua vào, bán ra và biểu đồ giá vàng thế giới trực quan.">
+  <script src="https://cdn.jsdelivr.net/npm/papaparse@5.4.1/papaparse.min.js"></script>
+  <style>
+    body { margin: 0; font-family: 'Segoe UI', sans-serif; background-color: #fff8f5; color: #333; }
+    .header-top {
+      background: #a60000; color: #f0c14b;
+      font-size: 30px; font-weight: bold;
+      text-align: center; padding: 20px 10px;
+    }
+    .header-bottom {
+      background: #fce9db;
+      display: flex; justify-content: space-between; align-items: center;
+      padding: 6px 20px; gap: 10px;
+    }
+    .header-bottom .left-info { flex: 1; font-size: 20px; color: #a60000; font-weight: 500; }
+    .header-bottom .middle-widget { flex: 1; text-align: center; }
+    .header-bottom .right-map {
+      flex: 1; max-width: 280px; display: flex; flex-direction: column; align-items: center;
+    }
+    .info-top {
+      background: #fff; color: #a60000; font-size: 18px;
+      padding: 10px 20px; border-bottom: 1px solid #d4af37;
+      display: flex; justify-content: flex-start;
+    }
+    .main-section {
+      display: flex; flex-wrap: wrap;
+      justify-content: space-between; gap: 20px; padding: 0 10px;
+    }
+    .price-board-wrapper { flex: 1 1 68%; min-width: 320px; }
+    .chart-wrapper { flex: 1 1 30%; min-width: 260px; }
+    .price-board {
+      width: 100%; border-collapse: collapse;
+      margin-top: 10px; font-size: 19px; background: white;
+    }
+    .price-board th {
+      background: #d4af37; color: #a60000;
+      padding: 10px; font-size: 19px;
+    }
+    .price-board th:first-child { text-align: left; }
+    .price-board th:nth-child(2), .price-board th:nth-child(3) { text-align: right; }
+    .price-board td {
+      border-top: 1px solid #e0e0e0;
+      padding: 12px 8px; font-size: 22px;
+      font-weight: bold; text-align: right; color: #333;
+    }
+    .price-board td:first-child {
+      color: #a60000; text-align: left;
+    }
+    .price-board tr:hover { background: #fff8e1; }
+    .tradingview-widget-container iframe {
+      width: 100%; height: 300px;
+      border: 2px solid #d4af37; border-radius: 8px;
+    }
+    .marquee {
+      background: #a60000; color: #fff;
+      font-size: 22px; font-weight: bold;
+      line-height: 50px; white-space: nowrap;
+      overflow: hidden; height: 50px;
+    }
+    .marquee-text {
+      display: inline-block;
+      padding-left: 100%;
+      animation: marquee 20s linear infinite;
+    }
+    @keyframes marquee {
+      0% { transform: translateX(0%); }
+      100% { transform: translateX(-100%); }
+    }
+    .footer {
+      background: #a60000; color: white;
+      display: flex; flex-wrap: wrap;
+      justify-content: space-between; padding: 10px 20px; align-items: center;
+    }
+    .footer img.logo { height: 80px; }
+    .footer-left, .footer-right { flex: 1 1 45%; }
+    .footer-right { text-align: right; font-size: 14px; line-height: 1.5; }
+    .social-icons img {
+      width: 32px; margin: 0 5px;
+      border: 2px solid #d4af37;
+      border-radius: 50%; padding: 5px;
+      transition: transform 0.3s;
+    }
+    .social-icons img:hover { transform: scale(1.2); }
+    @media (max-width: 768px) {
+      .main-section, .footer {
+        flex-direction: column; text-align: center;
+      }
+      .footer-right { margin-top: 20px; }
+    }
+  </style>
+</head>
+<body>
+  <div class="header-top">DOANH NGHIỆP TƯ NHÂN VÀNG BẠC KIM THÚY - HẢI DƯƠNG</div>
+  <div class="header-bottom">
+    <div class="left-info">
+      <span>Cập nhật lúc: <strong id="datetime">--:--:--</strong></span>
+    </div>
+    <div class="middle-widget">
+      <iframe src="https://www.tradingview-widget.com/embed-widget/single-quote/?locale=vi_VN#%7B%22symbol%22%3A%22PEPPERSTONE%3AXAUUSD%22%2C%22width%22%3A300%2C%22height%22%3A126%2C%22isTransparent%22%3Atrue%2C%22colorTheme%22%3A%22light%22%2C%22utm_source%22%3A%22sjc.com.vn%22%2C%22utm_medium%22%3A%22widget%22%2C%22utm_campaign%22%3A%22single-quote%22%2C%22page-uri%22%3A%22sjc.com.vn%2Fgia-vang-online%3Fgidzl%3DMJkg3KJxOoPS9we8G-5c9baWfmjSvcicG72W2bcoRof38Qy72-fWVHSh-G1Uxp1y4Iof0p0hylWPGFvd90%22%7D"
+        width="300" height="126" frameborder="0" allowtransparency="true" scrolling="no"></iframe>
+    </div>
+    <div class="right-map">
+      <iframe
+        src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3726.6445774993094!2d106.33093907519567!3d20.926614491279267!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x31359b3ab14a7e07%3A0x5025a3b290c0326b!2zMjgyIFRoYW5oIE5pw6puLCBQLiBI4bqjaSBUw6JuLCBI4bqjaSBExrDGoW5nLCAwMzAwMCwgVmnhu4d0IE5hbQ!5e0!3m2!1svi!2s!4v1746097294424!5m2!1svi!2s"
+        width="180" height="90" style="border:0;" allowfullscreen loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+      <strong style="margin-top: 4px; font-size: 14px; white-space: nowrap;">📍 282 Đường Thanh Niên, TP Hải Dương</strong>
+    </div>
+  </div>
+  <div class="info-top">
+    <div><strong>Đơn vị tính:</strong> Nghìn VNĐ/Chỉ</div>
+  </div>
+  <div class="main-section">
+    <div class="price-board-wrapper">
+      <table class="price-board">
+        <thead>
+          <tr><th>LOẠI VÀNG</th><th>MUA VÀO</th><th>BÁN RA</th></tr>
+        </thead>
+        <tbody id="price-table-body"></tbody>
+      </table>
+    </div>
+    <div class="chart-wrapper">
+      <h3 style="text-align:center;color:#a60000;">Biểu đồ giá vàng thế giới</h3>
+      <div class="tradingview-widget-container">
+        <iframe src="https://vn.tradingview.com/widgetembed/?symbol=XAUUSD&interval=1&theme=light" frameborder="0" allowtransparency="true" scrolling="no"></iframe>
+      </div>
+    </div>
+  </div>
+  <div class="marquee">
+    <div class="marquee-text">❤️ CHÂN THÀNH CẢM ƠN QUÝ KHÁCH HÀNG ❤️ CHÂN THÀNH CẢM ƠN QUÝ KHÁCH HÀNG ❤️</div>
+  </div>
+  <div class="footer">
+    <div class="footer-left">
+      <img src="https://i.imgur.com/NiE3vWJ.jpeg" alt="logo" class="logo">
+    </div>
+    <div class="footer-right">
+      <p style="margin: 0;"><strong>Về Chúng tôi</strong><br>
+        Doanh nghiệp tư nhân vàng bạc Kim Thúy - Hải Dương<br>
+        282 Đường Thanh Niên – TP Hải Dương<br>
+        Hotline: 0962 112 555</p>
+      <p style="margin: 8px 0 0 0;"><strong>Kết nối với chúng tôi</strong><br>
+        <span class="social-icons">
+          <a href="https://www.facebook.com/kimthuygold" target="_blank"><img src="https://cdn-icons-png.flaticon.com/512/733/733547.png" alt="Facebook"></a>
+          <a href="https://www.tiktok.com/@kimthuygold" target="_blank"><img src="https://giabac.vn/Content/ProductPrice/images/icon/tiktok.png" alt="TikTok"></a>
+          <a href="https://zalo.me/0962112555" target="_blank"><img src="https://giabac.vn/Content/ProductPrice/images/icon/zalo.png" alt="Zalo"></a>
+        </span>
+      </p>
+    </div>
+  </div>
+  <script>
+    function updateTime() {
+      const now = new Date();
+      const time = now.toLocaleTimeString('vi-VN');
+      const date = now.toLocaleDateString('vi-VN');
+      document.getElementById("datetime").innerText = `${time} ${date}`;
+    }
+    setInterval(updateTime, 1000);
+    updateTime();
+
+    async function fetchPriceTable() {
+      const sheetId = '1mF6NQWMLHWJiuaNSvK-6AXolrgUuS_QvW3rU45E_g24';
+      const url = `https://docs.google.com/spreadsheets/d/${sheetId}/gviz/tq?tqx=out:csv`;
+      try {
+        const response = await fetch(url);
+        const data = await response.text();
+        const parsed = Papa.parse(data, { header: false });
+        const rows = parsed.data;
+        rows.shift();
+        const tbody = document.getElementById('price-table-body');
+        tbody.innerHTML = '';
+        for (const row of rows) {
+          if (row.length >= 3) {
+            const [type, buy, sell] = row.map(cell => cell.trim());
+            const tr = document.createElement('tr');
+            tr.innerHTML = `<td>${type}</td><td>${buy}</td><td>${sell}</td>`;
+            tbody.appendChild(tr);
+          }
+        }
+      } catch (error) {
+        console.error('Lỗi khi tải bảng giá:', error);
+      }
+    }
+    fetchPriceTable();
+  </script>
+</body>
+</html>
